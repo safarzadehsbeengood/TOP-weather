@@ -10,21 +10,22 @@ loader.style.display = 'none';
 error.style.display = 'none';
 
 searchBtn.addEventListener('click', () => {
-    getWeather(searchBar.value);
+    getWeather(searchBar.value).catch(e => error.style.display = 'block');
+});
+
+document.querySelector('.form').addEventListener('submit', (e) => {
+    e.preventDefault();
 });
 
 async function getWeather(query){
-    try {
         const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${query}&aqi=no`;
         loader.style.display = 'block';
+        error.style.display = 'none';
         const res = await fetch(url);
         const data = await res.json();
         loader.style.display = 'none';
+        error.style.display = 'none';
         setWeather(data);
-    } catch (error) {
-        error.style.display = 'block';
-        console.log(error);
-    }
 }
 
 function setWeather(data){
