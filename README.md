@@ -1,3 +1,3 @@
 # Weather App (Odin Project)
 
-[Live Preview 👨‍💻]
+[Live Preview 👨‍💻](https://safarzadehsbeengood.github.io/TOP-weather/)
